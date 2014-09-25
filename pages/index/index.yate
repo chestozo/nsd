@@ -1,0 +1,17 @@
+match .head ns-view-add-class {
+    " island head"
+}
+
+match .head ns-view-content {
+    "Шапка: она не меняется от страницы к странице"
+}
+
+match .index ns-view-add-class {
+    " island"
+}
+
+match .index ns-view-content {
+    "Это индекс страница. На ней ничего нет."
+    <br/>
+    <br/>
+}

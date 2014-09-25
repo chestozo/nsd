@@ -1,11 +1,11 @@
 STYLUS = node_modules/.bin/stylus
 YATE = node_modules/.bin/yate
 
-all: css yate server
+all: css yate
 
-yate: templates.yate.js
+yate: pages/pages.yate.js
 
-templates.yate.js: templates.yate
+pages/pages.yate.js: pages/pages.yate
 	$(YATE) $< > $@
 
 css: css/all.css
