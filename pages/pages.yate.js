@@ -322,9 +322,11 @@ var yr = yr || require('yate/lib/runtime.js');
         var r0 = '';
 
         r0 += closeAttrs(a0);
-        r0 += "Это индекс страница. На ней ничего нет.";
-        r0 += "<br/>";
-        r0 += "<br/>";
+        r0 += "<ol>";
+        r0 += "<li>";
+        r0 += "<a href=\"" + scalar2attrvalue( ( (yr.externals['ns-generate-url'])("photo") ) ) + "\">" + "Фотографии" + "</a>";
+        r0 += "</li>";
+        r0 += "</ol>";
 
         return r0;
     };

@@ -11,7 +11,9 @@ match .index ns-view-add-class {
 }
 
 match .index ns-view-content {
-    "Это индекс страница. На ней ничего нет."
-    <br/>
-    <br/>
+    <ol>
+        <li>
+            <a href="{ ns-generate-url('photo') }">Фотографии</a>
+        </li>
+    </ol>
 }

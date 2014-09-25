@@ -16,5 +16,16 @@ ns.layout.define('index', {
 }, 'app');
 
 ns.View.define('app');
-ns.View.define('head');
+
+ns.View.define('head', {
+    events: {
+        'click': 'goHome'
+    },
+    methods: {
+        goHome: function() {
+            ns.page.go(ns.router.generateUrl('index'));
+        }
+    }
+});
+
 ns.View.define('index');
