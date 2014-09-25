@@ -83,6 +83,8 @@ var yr = yr || require('yate/lib/runtime.js');
     M.k1.ut = 'scalar';
     M.k1.bt = 'nodeset';
 
+
+
     var j5 = [ ];
 
     var j6 = [ 0, 'views', 0, '*' ];
@@ -116,6 +118,8 @@ var yr = yr || require('yate/lib/runtime.js');
     var j20 = [ 0, 'url_' ];
 
     var j21 = [ 0, 'photo-preview' ];
+
+    var j22 = [ 0, 'slideshow' ];
 
     // match /
     M.t0 = function t0(m, c0, i0, l0, a0) {
@@ -350,7 +354,7 @@ var yr = yr || require('yate/lib/runtime.js');
         var r0 = '';
 
         r0 += closeAttrs(a0);
-        r0 += "К примеру, вот фотки:";
+        r0 += "Фотки:";
         r0 += "<br/>";
         r0 += m.a(m, m.s(j14, c0.doc.root), 'ns-view', a0)
 
@@ -414,7 +418,7 @@ var yr = yr || require('yate/lib/runtime.js');
         var r0 = '';
 
         r0 += closeAttrs(a0);
-        r0 += "А вот и превью:";
+        r0 += "Превью:";
         r0 += "<br/>";
         r0 += "<br/>";
         r0 += "<img src=\"" + nodeset2attrvalue( ( m.n(j20, m.k('k0', "photo", c0.doc.root)) ) ) + "L" + "\"/>";
@@ -424,8 +428,32 @@ var yr = yr || require('yate/lib/runtime.js');
     M.t19.j = j21;
     M.t19.a = 0;
 
-    // match .head : ns-view-add-class
+    // match .slideshow : ns-view-add-class
     M.t20 = function t20(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t20.j = j22;
+    M.t20.a = 0;
+
+    // match .slideshow : ns-view-content
+    M.t21 = function t21(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += "<div class=\"" + "slideshow-play" + "\"></div>";
+
+        return r0;
+    };
+    M.t21.j = j22;
+    M.t21.a = 0;
+
+    // match .head : ns-view-add-class
+    M.t22 = function t22(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -433,11 +461,11 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t20.j = j15;
-    M.t20.a = 0;
+    M.t22.j = j15;
+    M.t22.a = 0;
 
     // match .head : ns-view-content
-    M.t21 = function t21(m, c0, i0, l0, a0) {
+    M.t23 = function t23(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -445,8 +473,8 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t21.j = j15;
-    M.t21.a = 0;
+    M.t23.j = j15;
+    M.t23.a = 0;
 
     M.matcher = {
         "": {
@@ -469,7 +497,7 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t3"
             ],
             "head": [
-                "t20",
+                "t22",
                 "t10",
                 "t3"
             ],
@@ -488,6 +516,10 @@ var yr = yr || require('yate/lib/runtime.js');
             "photo-preview": [
                 "t18",
                 "t3"
+            ],
+            "slideshow": [
+                "t20",
+                "t3"
             ]
         },
         "ns-view-add-attrs": {
@@ -500,7 +532,7 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t5"
             ],
             "head": [
-                "t21",
+                "t23",
                 "t11",
                 "t5"
             ],
@@ -514,6 +546,10 @@ var yr = yr || require('yate/lib/runtime.js');
             ],
             "photo-preview": [
                 "t19",
+                "t5"
+            ],
+            "slideshow": [
+                "t21",
                 "t5"
             ]
         },

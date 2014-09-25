@@ -3,7 +3,7 @@ match .photos ns-view-add-class {
 }
 
 match .photos ns-view-collection {
-    "К примеру, вот фотки:"
+    "Фотки:"
     <br/>
     apply /.views.ns-view-collection-container.* ns-view
 }
@@ -26,8 +26,17 @@ match .photo-preview ns-view-add-class {
 }
 
 match .photo-preview ns-view-content {
-    "А вот и превью:"
+    "Превью:"
     <br/>
     <br/>
     <img src="{ model('photo').url_ }L"/>
 }
+
+match .slideshow ns-view-add-class {
+    " island"
+}
+
+match .slideshow ns-view-content {
+    <div class="slideshow-play" />
+}
+

@@ -4,6 +4,8 @@ include "../node_modules/noscript/yate/noscript.yate"
 include "index/index.yate"
 include "photo/photo.yate"
 
+external object get-current-page()
+
 match .head ns-view-add-class {
     " island head"
 }
