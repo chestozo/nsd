@@ -107,6 +107,16 @@ var yr = yr || require('yate/lib/runtime.js');
 
     var j16 = [ 0, 'index' ];
 
+    var j17 = [ 0, 'photos' ];
+
+    var j18 = [ 0, 'photos-item' ];
+
+    var j19 = [ 0, 'id' ];
+
+    var j20 = [ 0, 'url_' ];
+
+    var j21 = [ 0, 'photo-preview' ];
+
     // match /
     M.t0 = function t0(m, c0, i0, l0, a0) {
         var r0 = '';
@@ -321,8 +331,99 @@ var yr = yr || require('yate/lib/runtime.js');
     M.t13.j = j16;
     M.t13.a = 0;
 
-    // match .head : ns-view-add-class
+    // match .photos : ns-view-add-class
     M.t14 = function t14(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t14.j = j17;
+    M.t14.a = 0;
+
+    // match .photos : ns-view-collection
+    M.t15 = function t15(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += "К примеру, вот фотки:";
+        r0 += "<br/>";
+        r0 += m.a(m, m.s(j14, c0.doc.root), 'ns-view', a0)
+
+        return r0;
+    };
+    M.t15.j = j17;
+    M.t15.a = 0;
+
+    // match .photos-item : ns-view-add-class
+    M.t16 = function t16(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " image-thumb";
+
+        return r0;
+    };
+    M.t16.j = j18;
+    M.t16.a = 0;
+
+    // match .photos-item : ns-view-content
+    M.t17 = function t17(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        //  var photo : nodeset
+        var v1 = m.k('k0', "photo", c0.doc.root);
+
+        //  var photo-url : scalar
+        var v2 = (yr.externals['ns-generate-url'])("photo", (function() {
+            var r0 = {};
+            var a0 = { a: {} };
+            r0[ "image-id" ] = yr.nodeset2data(m.n(j19, v1));
+
+            return r0;
+        })());
+
+        r0 += closeAttrs(a0);
+        r0 += "<a href=\"" + scalar2attrvalue( ( v2 ) ) + "\">";
+        r0 += "<img src=\"" + nodeset2attrvalue( ( m.n(j20, v1) ) ) + "XXS" + "\"/>";
+        r0 += "</a>";
+
+        return r0;
+    };
+    M.t17.j = j18;
+    M.t17.a = 0;
+
+    // match .photo-preview : ns-view-add-class
+    M.t18 = function t18(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t18.j = j21;
+    M.t18.a = 0;
+
+    // match .photo-preview : ns-view-content
+    M.t19 = function t19(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += "А вот и превью:";
+        r0 += "<br/>";
+        r0 += "<br/>";
+        r0 += "<img src=\"" + nodeset2attrvalue( ( m.n(j20, m.k('k0', "photo", c0.doc.root)) ) ) + "L" + "\"/>";
+
+        return r0;
+    };
+    M.t19.j = j21;
+    M.t19.a = 0;
+
+    // match .head : ns-view-add-class
+    M.t20 = function t20(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -330,11 +431,11 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t14.j = j15;
-    M.t14.a = 0;
+    M.t20.j = j15;
+    M.t20.a = 0;
 
     // match .head : ns-view-content
-    M.t15 = function t15(m, c0, i0, l0, a0) {
+    M.t21 = function t21(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -342,8 +443,8 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t15.j = j15;
-    M.t15.a = 0;
+    M.t21.j = j15;
+    M.t21.a = 0;
 
     M.matcher = {
         "": {
@@ -366,12 +467,24 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t3"
             ],
             "head": [
-                "t14",
+                "t20",
                 "t10",
                 "t3"
             ],
             "index": [
                 "t12",
+                "t3"
+            ],
+            "photos": [
+                "t14",
+                "t3"
+            ],
+            "photos-item": [
+                "t16",
+                "t3"
+            ],
+            "photo-preview": [
+                "t18",
                 "t3"
             ]
         },
@@ -385,12 +498,20 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t5"
             ],
             "head": [
-                "t15",
+                "t21",
                 "t11",
                 "t5"
             ],
             "index": [
                 "t13",
+                "t5"
+            ],
+            "photos-item": [
+                "t17",
+                "t5"
+            ],
+            "photo-preview": [
+                "t19",
                 "t5"
             ]
         },
@@ -401,6 +522,10 @@ var yr = yr || require('yate/lib/runtime.js');
         },
         "ns-view-collection": {
             "*": [
+                "t7"
+            ],
+            "photos": [
+                "t15",
                 "t7"
             ]
         },

@@ -1,0 +1,33 @@
+match .photos ns-view-add-class {
+    " island"
+}
+
+match .photos ns-view-collection {
+    "К примеру, вот фотки:"
+    <br/>
+    apply /.views.ns-view-collection-container.* ns-view
+}
+
+match .photos-item ns-view-add-class {
+    " image-thumb"
+}
+
+match .photos-item ns-view-content {
+    photo = model('photo')
+    photo-url = ns-generate-url('photo', { 'image-id': photo.id })
+
+    <a href="{ photo-url }">
+        <img src="{ photo.url_ }XXS"/>
+    </a>
+}
+
+match .photo-preview ns-view-add-class {
+    " island"
+}
+
+match .photo-preview ns-view-content {
+    "А вот и превью:"
+    <br/>
+    <br/>
+    <img src="{ model('photo').url_ }L"/>
+}

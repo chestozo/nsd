@@ -2,6 +2,7 @@ module "main"
 
 include "../node_modules/noscript/yate/noscript.yate"
 include "index/index.yate"
+include "photo/photo.yate"
 
 match .head ns-view-add-class {
     " island head"
