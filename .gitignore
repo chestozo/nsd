@@ -1,0 +1,6 @@
+node_modules
+template.yate.js
+*.yate.obj
+*.css
+.DS_Store
+.live*
