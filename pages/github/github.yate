@@ -1,0 +1,28 @@
+match .github-index ns-view-add-class {
+    " island"
+}
+
+match .github-index ns-view-content {
+    "github user:"
+    <br/>
+    <input type="text" class="github-search-box" />
+}
+
+match .github-profile ns-view-add-class {
+    " island"
+}
+
+match .github-profile ns-view-content {
+    @style = "vertical-align: top;"
+    profile = model('github-profile')
+    <img src="{ profile.avatar_url }" class="github-userpic" />
+    <a href="{ profile.html_url }" style="vertical-align: top;">{ profile.login }</a>
+}
+
+match .github-issues ns-view-add-class {
+    " island"
+}
+
+match .github-issues ns-view-content {
+    'issues'
+}

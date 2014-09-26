@@ -3,6 +3,7 @@ module "main"
 include "../node_modules/noscript/yate/noscript.yate"
 include "index/index.yate"
 include "photo/photo.yate"
+include "github/github.yate"
 
 external object get-current-page()
 

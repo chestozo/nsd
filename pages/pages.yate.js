@@ -121,6 +121,18 @@ var yr = yr || require('yate/lib/runtime.js');
 
     var j22 = [ 0, 'slideshow' ];
 
+    var j23 = [ 0, 'github-index' ];
+
+    var j24 = [ 0, 'github-profile' ];
+
+    var j25 = [ 0, 'avatar_url' ];
+
+    var j26 = [ 0, 'html_url' ];
+
+    var j27 = [ 0, 'login' ];
+
+    var j28 = [ 0, 'github-issues' ];
+
     // match /
     M.t0 = function t0(m, c0, i0, l0, a0) {
         var r0 = '';
@@ -330,6 +342,9 @@ var yr = yr || require('yate/lib/runtime.js');
         r0 += "<li>";
         r0 += "<a href=\"" + scalar2attrvalue( ( (yr.externals['ns-generate-url'])("photo") ) ) + "\">" + "Фотографии" + "</a>";
         r0 += "</li>";
+        r0 += "<li>";
+        r0 += "<a href=\"" + scalar2attrvalue( ( (yr.externals['ns-generate-url'])("github-index") ) ) + "\">" + "github API" + "</a>";
+        r0 += "</li>";
         r0 += "</ol>";
 
         return r0;
@@ -452,8 +467,87 @@ var yr = yr || require('yate/lib/runtime.js');
     M.t21.j = j22;
     M.t21.a = 0;
 
-    // match .head : ns-view-add-class
+    // match .github-index : ns-view-add-class
     M.t22 = function t22(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t22.j = j23;
+    M.t22.a = 0;
+
+    // match .github-index : ns-view-content
+    M.t23 = function t23(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += "github user:";
+        r0 += "<br/>";
+        r0 += "<input type=\"" + "text" + "\" class=\"" + "github-search-box" + "\"/>";
+
+        return r0;
+    };
+    M.t23.j = j23;
+    M.t23.a = 0;
+
+    // match .github-profile : ns-view-add-class
+    M.t24 = function t24(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t24.j = j24;
+    M.t24.a = 0;
+
+    // match .github-profile : ns-view-content
+    M.t25 = function t25(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        //  var profile : nodeset
+        var v3 = m.k('k0', "github-profile", c0.doc.root);
+
+        a0.a[ "style" ] = new yr.scalarAttr("vertical-align: top;");
+        r0 += closeAttrs(a0);
+        r0 += "<img src=\"" + nodeset2attrvalue( ( m.n(j25, v3) ) ) + "\" class=\"" + "github-userpic" + "\"/>";
+        r0 += "<a href=\"" + nodeset2attrvalue( ( m.n(j26, v3) ) ) + "\" style=\"" + "vertical-align: top;" + "\">" + nodeset2xml( ( m.n(j27, v3) ) ) + "</a>";
+
+        return r0;
+    };
+    M.t25.j = j24;
+    M.t25.a = 0;
+
+    // match .github-issues : ns-view-add-class
+    M.t26 = function t26(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += " island";
+
+        return r0;
+    };
+    M.t26.j = j28;
+    M.t26.a = 0;
+
+    // match .github-issues : ns-view-content
+    M.t27 = function t27(m, c0, i0, l0, a0) {
+        var r0 = '';
+
+        r0 += closeAttrs(a0);
+        r0 += "issues";
+
+        return r0;
+    };
+    M.t27.j = j28;
+    M.t27.a = 0;
+
+    // match .head : ns-view-add-class
+    M.t28 = function t28(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -461,11 +555,11 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t22.j = j15;
-    M.t22.a = 0;
+    M.t28.j = j15;
+    M.t28.a = 0;
 
     // match .head : ns-view-content
-    M.t23 = function t23(m, c0, i0, l0, a0) {
+    M.t29 = function t29(m, c0, i0, l0, a0) {
         var r0 = '';
 
         r0 += closeAttrs(a0);
@@ -473,8 +567,8 @@ var yr = yr || require('yate/lib/runtime.js');
 
         return r0;
     };
-    M.t23.j = j15;
-    M.t23.a = 0;
+    M.t29.j = j15;
+    M.t29.a = 0;
 
     M.matcher = {
         "": {
@@ -497,7 +591,7 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t3"
             ],
             "head": [
-                "t22",
+                "t28",
                 "t10",
                 "t3"
             ],
@@ -520,6 +614,18 @@ var yr = yr || require('yate/lib/runtime.js');
             "slideshow": [
                 "t20",
                 "t3"
+            ],
+            "github-index": [
+                "t22",
+                "t3"
+            ],
+            "github-profile": [
+                "t24",
+                "t3"
+            ],
+            "github-issues": [
+                "t26",
+                "t3"
             ]
         },
         "ns-view-add-attrs": {
@@ -532,7 +638,7 @@ var yr = yr || require('yate/lib/runtime.js');
                 "t5"
             ],
             "head": [
-                "t23",
+                "t29",
                 "t11",
                 "t5"
             ],
@@ -550,6 +656,18 @@ var yr = yr || require('yate/lib/runtime.js');
             ],
             "slideshow": [
                 "t21",
+                "t5"
+            ],
+            "github-index": [
+                "t23",
+                "t5"
+            ],
+            "github-profile": [
+                "t25",
+                "t5"
+            ],
+            "github-issues": [
+                "t27",
                 "t5"
             ]
         },

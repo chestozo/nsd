@@ -1,7 +1,7 @@
-no.extend(ns.router.routes.route, {
+ns.router.routes.route = no.extend({
     '/photos/{image-id:int}': 'photo',
     '/photos': 'photo'
-});
+}, ns.router.routes.route);
 
 ns.layout.define('photo', {
     'app content@': function(params) {

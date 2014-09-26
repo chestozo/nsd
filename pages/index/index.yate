@@ -15,5 +15,8 @@ match .index ns-view-content {
         <li>
             <a href="{ ns-generate-url('photo') }">Фотографии</a>
         </li>
+        <li>
+            <a href="{ ns-generate-url('github-index') }">github API</a>
+        </li>
     </ol>
 }
