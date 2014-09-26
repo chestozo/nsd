@@ -23,6 +23,6 @@ match .github-issues ns-view-add-class {
     " island"
 }
 
-match .github-issues ns-view-content {
+match .photos ns-view-collection {
     'issues'
 }
